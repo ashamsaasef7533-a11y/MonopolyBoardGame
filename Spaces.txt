@@ -1,0 +1,43 @@
+GO: Collect $200 salary as you pass.
+Mediterranean Avenue: Brown property.
+Community Chest: Draw a card.
+Baltic Avenue: Brown property.
+Income Tax: Pay $200.
+Reading Railroad: First of four railroad stations.
+Oriental Avenue: Light blue property.
+Chance: Draw a card.
+Vermont Avenue: Light blue property.
+Connecticut Avenue: Light blue property.
+In Jail / Just Visiting: Corner space. 
+
+St. Charles Place: Pink property.
+Electric Company: Utility.
+States Avenue: Pink property.
+Virginia Avenue: Pink property.
+Pennsylvania Railroad: Second of four railroad stations.
+St. James Place: Orange property.
+Community Chest: Draw a card.
+Tennessee Avenue: Orange property.
+New York Avenue: Orange property.
+Free Parking: Corner space. 
+
+Kentucky Avenue: Red property.
+Chance: Draw a card.
+Indiana Avenue: Red property.
+Illinois Avenue: Red property.
+B. & O. Railroad: Third of four railroad stations.
+Atlantic Avenue: Yellow property.
+Ventnor Avenue: Yellow property.
+Water Works: Utility.
+Marvin Gardens: Yellow property.
+Go To Jail: Corner space that sends you directly to Jail. 
+
+Pacific Avenue: Green property.
+North Carolina Avenue: Green property.
+Community Chest: Draw a card.
+Pennsylvania Avenue: Green property.
+Short Line: Fourth and final railroad station.
+Chance: Draw a card.
+Park Place: Dark blue property.
+Luxury Tax: Pay $100 (upped from $75 in older versions).
+Boardwalk: Dark blue property.

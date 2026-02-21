@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -22,51 +23,89 @@ private:
 public:
     CircularLinkedList() : head(nullptr), tail(nullptr), length(0) {}
 
+    // Destructor to clean up memory and prevent leaks
+    ~CircularLinkedList() {
+        if (head == nullptr) return;
+
+        CircularNode* current = head;
+        for (int i = 0; i < length; i++) {
+            CircularNode* nextNode = current->next;
+            delete current;
+            current = nextNode;
+        }
+        head = nullptr;
+        tail = nullptr;
+    }
+
     bool addSpace(string strValue) {
-        if (length >= capacity) return false;
+        if (length >= capacity) {
+            cerr << "Error: Reached Maximum Capacity of 40" << endl;
+            return false;
+        }
 
         CircularNode* newNode = new CircularNode(strValue);
 
         if (head == nullptr) {
-            // First node logic
             head = newNode;
             tail = newNode;
-            newNode->next = head; // Point to itself
+            newNode->next = head; // Make it circular immediately
         } else {
-            // Standard insertion
             tail->next = newNode;
             tail = newNode;
-            tail->next = head; // Maintain circle
+            tail->next = head; // Close the circle
         }
 
         length++;
-        return true; // Added missing return
+        return true;
+    }
+
+    void loadSpacesFromFile(string filename) {
+        ifstream file(filename);
+
+        if (!file.is_open()) {
+            cerr << "Error: Could not open the file " << filename << endl;
+            return;
+        }
+
+        string line;
+        while (getline(file, line)) {
+            // Check for non-empty lines to avoid adding blank spaces to the board
+            if (!line.empty()) {
+                addSpace(line);
+            }
+        }
+
+        file.close();
     }
 
     void printLinkedList() {
-        if (!head) return;
+        if (head == nullptr) {
+            cout << "The board is empty." << endl;
+            return;
+        }
 
         CircularNode* temp = head;
-        for (int i = 0; i < length; i++) { // Initialize i = 0
-            cout << temp->data << " -> ";
-            temp = temp->next; // Move to the next node
+        for (int i = 0; i < length; i++) {
+            cout << "[" << i + 1 << "] " << temp->data << endl;
+            temp = temp->next;
         }
-        cout << "(Back to " << head->data << ")" << endl;
-        cout << "Current List Length = " << length << endl;
     }
 };
 
 int main() {
     CircularLinkedList board;
-    board.addSpace("GO");
+
+    // Load spaces from the provided Spaces.txt file
+    board.loadSpacesFromFile("C:\\CS210\\MonopolyBoardGame\\Spaces.txt");
+
     board.addSpace("Mediterranean Avenue");
     board.addSpace("Community Chest");
 
-    cout << "WELCOME TO MONOPOLY" << endl;
-    cout << "THIS IS ARMAAN SHAMSAASEF'S VERSION" << endl;
-    cout << "GOOD LUCK" << endl;
-    board.printLinkedList();
+    cout << "=======================================" << endl;
+    cout << " WELCOME TO MONOPOLY-ARMAAN SHAMSAASEF " << endl;
+    cout << "=======================================" << endl;
 
+    board.printLinkedList();
 
     return 0;
 }
