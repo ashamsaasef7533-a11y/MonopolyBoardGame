@@ -140,7 +140,7 @@ int main() {
     int rewardedItem = 0;
 
     // 3. Call the function (Adding 10 as per your handwritten note)
-    rewardedItem = board.addMany(15, "C:\\CS210\\MonopolyBoardGame\\Spaces.txt");
+    rewardedItem = board.addMany(15, "..\\Spaces.txt");
 
     board.printLinkedList();
 
@@ -150,11 +150,10 @@ int main() {
     cout << "------------------------------------" << endl;
 
     // Load spaces from the provided Spaces.txt file
-    board.loadSpacesFromFile("C:\\CS210\\MonopolyBoardGame\\Spaces.txt");
+    board.loadSpacesFromFile("..\\Spaces.txt");
 
     board.addSpace("Mediterranean Avenue");
     board.addSpace("Community Chest");
-
 
     board.printLinkedList();
 
